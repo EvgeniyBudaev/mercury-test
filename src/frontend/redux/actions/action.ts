@@ -1,7 +1,8 @@
 import {LOAD_POSTS, FAILURE, REQUEST, SUCCESS} from "../constants";
+import {AppThunk} from "../types";
 
 
-export const loadPosts = () => async (dispatch) => {
+export const loadPosts = (): AppThunk => async (dispatch) => {
     dispatch({type: LOAD_POSTS + REQUEST})
     try {
         const response = await fetch(

@@ -34,10 +34,11 @@ const Cards = (props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    posts: state
-})
-
-export default connect(mapStateToProps,
+export default connect(
+    createStructuredSelector({
+        posts: postsListSelector,
+        loading: postsLoadingSelector,
+        loaded: postsLoadedSelector,
+    }),
     {loadPosts}
 )(Cards)

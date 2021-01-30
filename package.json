@@ -9,8 +9,7 @@
     "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
-    "@types/react": "^16.14.2",
-    "@types/react-dom": "^16.9.8",
+    "@types/react-dom": "^0.14.23",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-localstorage": "^1.0.8",
@@ -34,6 +33,9 @@
     "typescript": "^4.0.3",
     "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
+  },
+  "resolutions": {
+    "@types/react": "^15.0.16"
   },
   "scripts": {
     "start": "react-scripts start",

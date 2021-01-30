@@ -1,5 +1,6 @@
 import {arrToMap} from "../utils";
 import {FAILURE, LOAD_POSTS, REQUEST, SUCCESS} from "../constants";
+import {AppThunk} from "../types";
 
 const initialState = {
     entities: {},
@@ -8,7 +9,9 @@ const initialState = {
     error: null,
 }
 
-const postsReducer = (state = initialState, action) => {
+type IStatePosts  = typeof initialState
+
+const postsReducer = (state = initialState, action:any): IStatePosts => {
     console.log('[Reducer][action]', action)
     const {type, response, error} = action
 
