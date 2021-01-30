@@ -1,13 +1,9 @@
 import {arrToMap} from "../utils";
 import {LOAD_POSTS_REQUEST, LOAD_POSTS_SUCCESS, LOAD_POSTS_FAILURE} from "../constants";
 import {PostsTypes, IFailure} from "../actions/action";
+import {IPost} from "../types";
 
-interface IPost {
-    id: number,
-    userId: number,
-    title: string,
-    body: string
-}
+
 interface IPostsEntities {
     [payload: string]: IPost
 }

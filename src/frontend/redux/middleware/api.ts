@@ -2,7 +2,7 @@ import { Middleware } from 'redux'
 import {FAILURE, REQUEST, SUCCESS} from '../constants'
 import {RootStateType} from '../reducers'
 
-const api = (store) => (next) => async (action) => {
+const api: Middleware<{}, RootStateType> = (store) => (next) => async (action) => {
     if (!action.CallAPI) return next(action)
 
     const {CallAPI, type, ...rest} = action

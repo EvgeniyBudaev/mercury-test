@@ -10,5 +10,14 @@ export type AppThunk<ReturnType = void> = ThunkAction<
     Action<PostsTypes>
     >
 
+export interface IPost {
+    id: number,
+    userId: number,
+    title: string,
+    body: string
+}
 
+export interface IPostsById {
+    [key: string]: IPost
+}
 
