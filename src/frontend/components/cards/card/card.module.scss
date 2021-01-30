@@ -1,0 +1,26 @@
+.card {
+  margin-left: 25px;
+  margin-bottom: 25px;
+  transition: all 1s;
+  flex-basis: calc(33.333% - 25px);
+  background-color: var(--gray);
+  border-radius: 5px;
+}
+
+.inner {
+  padding: 15px;
+}
+
+.left {}
+
+.right {}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.text {}
+
+.text + .text {
+  margin-top: 15px;
+}

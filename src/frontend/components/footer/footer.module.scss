@@ -1,0 +1,13 @@
+.footer {
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0;
+}
+
+.copyright {
+  color: var(--white);
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
