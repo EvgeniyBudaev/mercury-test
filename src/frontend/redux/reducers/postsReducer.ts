@@ -1,22 +1,33 @@
 import {arrToMap} from "../utils";
 import {LOAD_POSTS_REQUEST, LOAD_POSTS_SUCCESS, LOAD_POSTS_FAILURE} from "../constants";
-import {AppThunk} from "../types";
-import {ActionTypes} from "../actions/action";
+import {PostsTypes, IFailure} from "../actions/action";
 
-const initialState = {
+interface IPost {
+    id: number,
+    userId: number,
+    title: string,
+    body: string
+}
+interface IPostsEntities {
+    [payload: string]: IPost
+}
+interface IPostsState {
+    loading: boolean
+    loaded: boolean,
+    error:  null | IFailure,
+    entities: IPostsEntities
+}
+const initialState: IPostsState = {
     entities: {},
     loading: false,
     loaded: false,
     error: null,
 }
 
-type IStatePosts  = typeof initialState
 
-const postsReducer = (state = initialState, action: ActionTypes): IStatePosts => {
-    console.log('[Reducer][action]', action)
-    const {type, response, error} = action
+const postsReducer = (state = initialState, action: PostsTypes): IPostsState => {
 
-    switch (type) {
+    switch (action.type) {
         case LOAD_POSTS_REQUEST:
             return {
                 ...state,
@@ -26,7 +37,7 @@ const postsReducer = (state = initialState, action: ActionTypes): IStatePosts =>
         case LOAD_POSTS_SUCCESS:
             return {
                 ...state,
-                entities: arrToMap(response),
+                entities: arrToMap(action.payload),
                 loading: false,
                 loaded: true,
             }
@@ -35,7 +46,7 @@ const postsReducer = (state = initialState, action: ActionTypes): IStatePosts =>
                 ...state,
                 loading: false,
                 loaded: false,
-                error,
+                error: action.error,
             }
         default:
             return state
