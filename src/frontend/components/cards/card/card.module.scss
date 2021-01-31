@@ -5,6 +5,9 @@
   flex-basis: calc(33.333% - 25px);
   background-color: var(--gray);
   border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  transition: all .3s;
 }
 
 .inner {
@@ -32,4 +35,23 @@
 
 .text + .text {
   margin-top: 15px;
+}
+
+.hoverShadow {
+  position: relative;
+}
+
+.hoverShadow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  transition: all 0.5s;
+}
+
+.hoverShadow:hover::after {
+  background: rgba(0, 0, 0, 0.4);
 }

@@ -1,7 +1,8 @@
 import React from 'react'
+import cn from 'classnames'
+import {connect} from "react-redux";
 import styles from './card.module.scss'
 import {ICard} from "./interface";
-import {connect} from "react-redux";
 import {RootStateType} from "../../../redux/reducers";
 import {photoSelector, postSelector} from "../../../redux/selectors";
 import {IPostId} from "../../../redux/types";
@@ -10,11 +11,10 @@ import {IPostId} from "../../../redux/types";
 const Card: React.FC<ICard> = (props) => {
     const {title, body} = props.post
     const {url} = props.photo
-    console.log('[Card][props]', props)
-
+    const card = cn(styles.card, styles.hoverShadow)
 
     return (
-        <div className={styles.card}>
+        <div className={card}>
             <div className={styles.inner}>
                 <div className={styles.left}>
                     <img src={url} alt=""/>

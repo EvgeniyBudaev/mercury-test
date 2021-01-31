@@ -27,7 +27,6 @@ const Cards: React.FC<CardsPopsType> = (props) => {
         loadingPhotos,
         loadedPhotos
     } = props
-    console.log('[Cards][props]', props)
 
 
     useEffect(() => {
