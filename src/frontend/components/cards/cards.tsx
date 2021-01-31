@@ -67,3 +67,4 @@ const mapStateToProps = (state: RootStateType):MapStatePropsPostsType => {
 }
 
 export default connect(mapStateToProps, {loadPosts, loadPhotos})(Cards);
+

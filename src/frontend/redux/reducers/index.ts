@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux'
 import postsReducer from "./postsReducer";
 import photosReducer from "./photosReducer";
+import feedbackReducer from "./feedbackReducer";
 
 const rootReducer = combineReducers({
     posts: postsReducer,
-    photos: photosReducer
+    photos: photosReducer,
+    feedback: feedbackReducer
 })
 
 // (globalState: RootStateType) => RootStateType

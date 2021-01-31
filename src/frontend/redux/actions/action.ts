@@ -6,7 +6,7 @@ import {
     LOAD_POSTS_FAILURE,
     LOAD_PHOTOS_REQUEST,
     LOAD_PHOTOS_SUCCESS,
-    LOAD_PHOTOS_FAILURE
+    LOAD_PHOTOS_FAILURE, ADD_FEEDBACK
 } from "../constants";
 import {PostsThunk, IPostsResponse, PostsTypes, PhotosTypes, IPhotosResponse, PhotosThunk} from "../types";
 import {Dispatch} from "redux";
@@ -52,5 +52,26 @@ export const loadPhotos = ():PhotosThunk => async (dispatch: Dispatch<PhotosType
         dispatch({type: LOAD_PHOTOS_FAILURE, error})
     }
 }
+
+
+
+interface IFeedback {
+    name: string,
+    text: string,
+    phone: string,
+}
+interface IAddFeedbackPayload {
+    feedback: IFeedback,
+}
+export interface IAddFeedback {
+    type: typeof ADD_FEEDBACK,
+    payload: IAddFeedbackPayload,
+}
+export const addFeedback = (feedback: IFeedback):IAddFeedback => ({
+    type: ADD_FEEDBACK,
+    payload: {feedback}
+})
+
+
 
 

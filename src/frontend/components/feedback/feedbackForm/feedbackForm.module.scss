@@ -1,0 +1,16 @@
+.feedbackForm {}
+
+.title {
+  margin-bottom: 50px;
+}
+
+.form {
+  & form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.message {
+  margin-bottom: 25px;
+}
