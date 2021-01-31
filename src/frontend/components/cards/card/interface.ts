@@ -1,7 +1,8 @@
-import {IPost} from "../../../redux/types";
+import {IPhoto, IPost, IPostId} from "../../../redux/types";
 
 export interface ICard {
     post: IPost,
-    postId: any
+    photo: IPhoto,
+    postId: IPostId | number
 }
 

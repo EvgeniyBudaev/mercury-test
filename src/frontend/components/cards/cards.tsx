@@ -32,8 +32,8 @@ const Cards: React.FC<CardsPopsType> = (props) => {
 
     useEffect(() => {
         if (!loadingPosts && !loadedPosts && !loadingPhotos && !loadedPhotos) {
-            loadPosts()
             loadPhotos()
+            loadPosts()
         }
     }, [loadPosts, loadPhotos, loadingPosts, loadedPosts, loadingPhotos, loadedPhotos])
 
