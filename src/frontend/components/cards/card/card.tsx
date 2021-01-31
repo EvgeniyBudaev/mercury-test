@@ -1,7 +1,10 @@
 import React from 'react'
 import styles from './card.module.scss'
+import {ICard} from "./interface";
 
-const Card = () => {
+const Card: React.FC<ICard> = (props) => {
+    const {post} = props
+
     return (
         <div className={styles.card}>
             <div className={styles.inner}>
