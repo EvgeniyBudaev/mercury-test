@@ -1,5 +1,7 @@
 import {IPost} from "../../../redux/types";
 
 export interface ICard {
-    post: IPost
+    post: IPost,
+    postId: any
 }
+

@@ -5,10 +5,11 @@ import Card from "./card/card";
 import Loader from "../loader/loader";
 import {
     photosListSelector,
-    photosLoadedSelector, photosLoadingSelector,
+    photosLoadedSelector,
+    photosLoadingSelector,
     postsListSelector,
     postsLoadedSelector,
-    postsLoadingSelector
+    postsLoadingSelector,
 } from "../../redux/selectors";
 import {loadPhotos, loadPosts} from "../../redux/actions/action";
 import {RootStateType} from "../../redux/reducers";
@@ -28,6 +29,7 @@ const Cards: React.FC<CardsPopsType> = (props) => {
     } = props
     console.log('[Cards][props]', props)
 
+
     useEffect(() => {
         if (!loadingPosts && !loadedPosts && !loadingPhotos && !loadedPhotos) {
             loadPosts()
@@ -37,6 +39,7 @@ const Cards: React.FC<CardsPopsType> = (props) => {
 
     if ((loadingPhotos && loadingPosts) || (!loadedPosts && !loadedPhotos)) return <Loader />
 
+
     return (
         <div className={styles.cards}>
             <div className={styles.container}>
@@ -44,7 +47,7 @@ const Cards: React.FC<CardsPopsType> = (props) => {
                 <div className={styles.inner}>
                     {
                         posts.map(post => (
-                            <Card key={post.id} post={post} />
+                            <Card key={post.id} postId={post.id} />
                         ))
                     }
                 </div>

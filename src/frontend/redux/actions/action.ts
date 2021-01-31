@@ -16,7 +16,7 @@ import {Dispatch} from "redux";
 const fetchPostsAsync = createAsyncAction(
     LOAD_POSTS_REQUEST,
     LOAD_POSTS_SUCCESS,
-    LOAD_POSTS_FAILURE
+    LOAD_POSTS_FAILURE,
 )<void, Array<IPostsResponse>, Error>();
 
 export const loadPosts = ():PostsThunk => async (dispatch: Dispatch<PostsTypes>) => {
@@ -25,7 +25,9 @@ export const loadPosts = ():PostsThunk => async (dispatch: Dispatch<PostsTypes>)
         const response = await axios.get(
             `https://jsonplaceholder.typicode.com/posts?_start=0&_limit=4`
         )
-        dispatch(fetchPostsAsync.success(response.data))
+
+        //dispatch({type: LOAD_POSTS_FAILURE, response.data, generateId: ['posts']})
+         dispatch(fetchPostsAsync.success(response.data))
     } catch (error) {
         dispatch({type: LOAD_POSTS_FAILURE, error})
     }

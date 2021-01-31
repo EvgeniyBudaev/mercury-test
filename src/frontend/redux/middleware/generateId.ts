@@ -5,7 +5,7 @@ import {IPostsById} from "../types";
 
 
 const generateId: Middleware<{}, RootStateType> = (store) => (next) => (action) => {
-    if (!action.generateId) return next(action)
+     if (!action.generateId) return next(action)
 
     const {generateId, ...rest} = action
     next({

@@ -1,8 +1,10 @@
 import {createSelector} from 'reselect'
 import {RootStateType} from "./reducers";
+import {IPost, IPostId} from "./types";
 
-const postsSelector = (state: RootStateType) => state.posts.entities
-const photosSelector = (state: RootStateType) => state.photos.entities
+
+export const postsSelector = (state: RootStateType) => state.posts.entities
+export const photosSelector = (state: RootStateType) => state.photos.entities
 
 export const postsLoadingSelector = (state: RootStateType) =>
     state.posts.loading
@@ -23,3 +25,8 @@ export const photosListSelector = createSelector(
     photosSelector,
     Object.values
 )
+
+
+export const postSelector = (state: RootStateType, props: IPostId): IPost => state.posts.entities[props.postId]
+//export const photoSelector = (state: RootStateType, props: number) => state.photos.entities[props.photosId]
+

@@ -1,12 +1,13 @@
-import {IPhoto, IPost} from "../../redux/types";
+import {IPhoto, IPost, IPostsById} from "../../redux/types";
+
 
 export type MapStatePropsPostsType = {
     posts: Array<IPost>,
-    photos: Array<IPhoto>
+    photos: Array<IPhoto>,
     loadingPosts: boolean,
     loadedPosts: boolean,
     loadingPhotos: boolean,
-    loadedPhotos: boolean
+    loadedPhotos: boolean,
 }
 
 type MapDispatchPropsPostsType = {

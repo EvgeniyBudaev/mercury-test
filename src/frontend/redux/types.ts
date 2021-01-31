@@ -35,6 +35,10 @@ export interface IPostsById {
     [key: string]: IPost
 }
 
+export interface IPostId {
+    postId: number
+}
+
 export interface IPhoto {
     id: number,
     albumId: number,
