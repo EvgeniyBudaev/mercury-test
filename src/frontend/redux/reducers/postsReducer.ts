@@ -17,7 +17,7 @@ const initialState: IPostsState = {
     entities: {},
     loading: false,
     loaded: false,
-    error: null,
+    error: null as IFailure | null,
 }
 
 

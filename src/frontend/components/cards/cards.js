@@ -4,7 +4,7 @@ import styles from './cards.module.scss'
 import Card from "./card/card";
 import Loader from "../loader/loader";
 import {createStructuredSelector} from "reselect";
-import {postsListSelector, postsLoadedSelector, postsLoadingSelector, postsSelector} from "../../redux/selectors";
+import {postsListSelector, postsLoadedSelector, postsLoadingSelector} from "../../redux/selectors";
 import {loadPosts} from "../../redux/actions/action";
 
 const Cards = (props) => {
