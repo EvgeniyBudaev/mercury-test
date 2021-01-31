@@ -1,13 +1,27 @@
 import {Action} from 'redux'
 import {ThunkAction} from 'redux-thunk'
 import {RootStateType} from './reducers'
-import {LOAD_POSTS_FAILURE, LOAD_POSTS_REQUEST, LOAD_POSTS_SUCCESS} from "./constants";
+import {
+    LOAD_PHOTOS_FAILURE,
+    LOAD_PHOTOS_REQUEST,
+    LOAD_PHOTOS_SUCCESS,
+    LOAD_POSTS_FAILURE,
+    LOAD_POSTS_REQUEST,
+    LOAD_POSTS_SUCCESS
+} from "./constants";
 
-export type AppThunk<ReturnType = void> = ThunkAction<
+export type PostsThunk<ReturnType = void> = ThunkAction<
     ReturnType,
     RootStateType,
     unknown,
     Action<PostsTypes>
+    >
+
+export type PhotosThunk<ReturnType = void> = ThunkAction<
+    ReturnType,
+    RootStateType,
+    unknown,
+    Action<PhotosTypes>
     >
 
 export interface IPost {
@@ -21,11 +35,31 @@ export interface IPostsById {
     [key: string]: IPost
 }
 
-export interface IResponse {
+export interface IPhoto {
+    id: number,
+    albumId: number,
+    title: string,
+    url: string,
+    thumbnailUrl: string
+}
+
+export interface IPhotosById {
+    [key: string]: IPhoto
+}
+
+export interface IPostsResponse {
     id: number,
     userId: number,
     title: string,
     body: string
+}
+
+export interface IPhotosResponse {
+    id: number,
+    albumId: number,
+    title: string,
+    url: string,
+    thumbnailUrl: string
 }
 
 export type IFailure = {
@@ -38,7 +72,7 @@ export type LoadPostsRequestType = {
 
 export type LoadPostsSuccessType = {
     type: typeof LOAD_POSTS_SUCCESS,
-    payload: Array<IResponse>
+    payload: Array<IPostsResponse>
 }
 
 export type LoadPostsFailureType = {
@@ -46,4 +80,21 @@ export type LoadPostsFailureType = {
     error: IFailure
 }
 
+export type LoadPhotosRequestType = {
+    type: typeof LOAD_PHOTOS_REQUEST
+}
+
+export type LoadPhotosSuccessType = {
+    type: typeof LOAD_PHOTOS_SUCCESS,
+    payload: Array<IPhotosResponse>
+}
+
+export type LoadPhotosFailureType = {
+    type: typeof LOAD_PHOTOS_FAILURE,
+    error: IFailure
+}
+
 export type PostsTypes = LoadPostsRequestType | LoadPostsSuccessType | LoadPostsFailureType
+
+
+export type PhotosTypes = LoadPhotosRequestType | LoadPhotosSuccessType | LoadPhotosFailureType

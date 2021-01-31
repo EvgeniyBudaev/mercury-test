@@ -3,43 +3,39 @@ import {connect} from 'react-redux'
 import styles from './cards.module.scss'
 import Card from "./card/card";
 import Loader from "../loader/loader";
-import {postsListSelector, postsLoadedSelector, postsLoadingSelector} from "../../redux/selectors";
-import {loadPosts} from "../../redux/actions/action";
+import {
+    photosListSelector,
+    photosLoadedSelector, photosLoadingSelector,
+    postsListSelector,
+    postsLoadedSelector,
+    postsLoadingSelector
+} from "../../redux/selectors";
+import {loadPhotos, loadPosts} from "../../redux/actions/action";
 import {RootStateType} from "../../redux/reducers";
+import {CardsPopsType, MapStatePropsPostsType} from "./interface";
 
-interface IPost {
-    id: number,
-    userId: number,
-    title: string,
-    body: string
-}
 
-type MapStatePropsType = {
-    posts: Array<IPost>,
-    loading: boolean,
-    loaded: boolean
-}
-
-type MapDispatchPropsType = {
-    loadPosts: () => void
-}
-
-type CardsPopsType = MapStatePropsType & MapDispatchPropsType
 
 const Cards: React.FC<CardsPopsType> = (props) => {
     const {
         posts,
         loadPosts,
-        loading,
-        loaded,
+        loadPhotos,
+        loadingPosts,
+        loadedPosts,
+        loadingPhotos,
+        loadedPhotos
     } = props
     console.log('[Cards][props]', props)
 
     useEffect(() => {
-        if (!loading && !loaded) loadPosts()
-    }, [loadPosts, loading, loaded])
+        if (!loadingPosts && !loadedPosts && !loadingPhotos && !loadedPhotos) {
+            loadPosts()
+            loadPhotos()
+        }
+    }, [loadPosts, loadPhotos, loadingPosts, loadedPosts, loadingPhotos, loadedPhotos])
 
-    if (loading || !loaded) return <Loader />
+    if ((loadingPhotos && loadingPosts) || (!loadedPosts && !loadedPhotos)) return <Loader />
 
     return (
         <div className={styles.cards}>
@@ -57,12 +53,15 @@ const Cards: React.FC<CardsPopsType> = (props) => {
     )
 }
 
-const mapStateToProps = (state: RootStateType):MapStatePropsType => {
+const mapStateToProps = (state: RootStateType):MapStatePropsPostsType => {
     return {
         posts: postsListSelector(state),
-        loading: postsLoadingSelector(state),
-        loaded: postsLoadedSelector(state),
+        loadingPosts: postsLoadingSelector(state),
+        loadedPosts: postsLoadedSelector(state),
+        photos: photosListSelector(state),
+        loadingPhotos: photosLoadingSelector(state),
+        loadedPhotos: photosLoadedSelector(state),
     }
 }
 
-export default connect(mapStateToProps, {loadPosts})(Cards);
+export default connect(mapStateToProps, {loadPosts, loadPhotos})(Cards);
