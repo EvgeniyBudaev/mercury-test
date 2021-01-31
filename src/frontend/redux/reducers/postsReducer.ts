@@ -1,7 +1,6 @@
 import {arrToMap} from "../utils";
 import {LOAD_POSTS_REQUEST, LOAD_POSTS_SUCCESS, LOAD_POSTS_FAILURE} from "../constants";
-import {PostsTypes, IFailure} from "../actions/action";
-import {IPost} from "../types";
+import {IFailure, IPost, PostsTypes} from "../types";
 
 
 interface IPostsEntities {
