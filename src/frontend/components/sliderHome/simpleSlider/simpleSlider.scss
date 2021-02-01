@@ -1,0 +1,59 @@
+// Резиновая главная картинка в слайдере
+.slick-slide img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  outline: transparent;
+}
+
+.slick-dots {
+  display: flex !important;
+  justify-content: center;
+  margin: 50px 0;
+  & li {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  & li.slick-active button {
+    background-color: var(--beige);
+    outline: none;
+  }
+  & button {
+    font-size: 0;
+    width: 15px;
+    height: 15px;
+    background-color: var(--gray);
+    border: none;
+    outline: none;
+  }
+}
+
+// Общие свойства для всех слайдеров
+.slick-list,
+.slick-track {
+  touch-action: pan-y;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  touch-action: pan-y;
+}
+
+
+.slick-list,
+.slick-track {
+  touch-action: pan-y;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  touch-action: pan-y;
+}
+
+
+@media (max-width: 500px) {
+  .nav.slick-initialized .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+}

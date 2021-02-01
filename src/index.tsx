@@ -4,7 +4,7 @@ import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import store from "./frontend/redux/store"
 import 'normalize.css'
-import 'antd/dist/antd.css'
+import 'slick-carousel/slick/slick.css'
 import './index.css'
 import App from './frontend/components/app'
 import reportWebVitals from './reportWebVitals'

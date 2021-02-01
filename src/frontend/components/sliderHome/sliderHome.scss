@@ -1,0 +1,91 @@
+.sliderHome {
+  padding: 50px 0;
+}
+
+.slider {
+  font-size: 16px;
+}
+
+.sliderContainer {
+  /*ширина контейнера чистая 1110px*/
+  max-width: 1040px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.sliderTitle {
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+// Стрелки у слайдера
+.sliderInner {
+  position: relative;
+}
+.sliderInner .slick-arrow {
+  border: none;
+  width: 35px;
+  height: 52px;
+  font-size: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+}
+.sliderInner .slick-prev {
+  background-image: url('../../assets/icons/icon-arrow-gray-left.svg');
+  background-repeat: no-repeat;
+  left: 0;
+  margin-left: -40px;
+}
+.sliderInner .slick-next {
+  background-image: url('../../assets/icons/icon-arrow-gray-right.svg');
+  background-repeat: no-repeat;
+  right: 0;
+  margin-right: -50px;
+}
+
+// В слайдере элементы выравниваем по равномерно центру
+.sliderInner .slick-slide {
+  text-align: center;
+}
+
+// В карточках картинки выравниваем по центру
+.sliderInner .slick-slide {
+  padding: 4px !important;
+}
+.sliderInner .slick-slide img {
+  margin: 0 auto !important;
+}
+
+
+@media (max-width: 1100px) {
+  .sliderContainer {
+    padding: 0 60px;
+  }
+}
+
+@media (max-width: 760px) {
+  .sliderTitle,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sliderTitle {
+    text-align: center;
+  }
+}

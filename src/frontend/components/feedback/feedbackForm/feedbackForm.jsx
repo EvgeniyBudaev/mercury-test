@@ -47,7 +47,6 @@ const FeedbackForm = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         if (validate()) {
-            console.log('OK')
             onSubmit(values)
             resetForm()
             setOpenPopup(true)
