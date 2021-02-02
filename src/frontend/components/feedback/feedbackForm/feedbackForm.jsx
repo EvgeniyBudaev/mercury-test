@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const FeedbackForm = (props) => {
-    console.log('[FeedbackForm][props]', props)
     const INITIAL_VALUES = {name: '', lastname: '', phone: ''}
     const {onSubmit} = props
 

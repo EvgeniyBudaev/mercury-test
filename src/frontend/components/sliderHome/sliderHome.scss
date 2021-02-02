@@ -33,23 +33,23 @@
   font-size: 0;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
   z-index: 2;
   cursor: pointer;
   background-color: transparent;
   outline: none;
 }
 .sliderInner .slick-prev {
-  background-image: url('../../assets/icons/icon-arrow-gray-left.svg');
+  background-image: url('../../assets/icons/icon-arrow-white-left.svg');
   background-repeat: no-repeat;
   left: 0;
-  margin-left: -40px;
+  margin-left: 35px;
 }
 .sliderInner .slick-next {
-  background-image: url('../../assets/icons/icon-arrow-gray-right.svg');
+  background-image: url('../../assets/icons/icon-arrow-white-right.svg');
   background-repeat: no-repeat;
   right: 0;
-  margin-right: -50px;
+  margin-right: 25px;
 }
 
 // В слайдере элементы выравниваем по равномерно центру
