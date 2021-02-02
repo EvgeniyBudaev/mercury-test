@@ -12,15 +12,13 @@ import ErrorBoundary from "./frontend/components/errorBoundary";
 
 
 ReactDOM.render(
-  <React.StrictMode>
       <BrowserRouter>
           <Provider store={store}>
               <ErrorBoundary>
                   <App />
               </ErrorBoundary>
           </Provider>
-      </BrowserRouter>
-  </React.StrictMode>,
+      </BrowserRouter>,
   document.getElementById('root')
 )
 

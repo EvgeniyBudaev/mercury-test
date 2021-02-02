@@ -5,6 +5,7 @@
   margin-bottom: 100px;
   & h2 {
     margin-bottom: 50px;
+    color: var(--black);
   }
   & button {
     text-transform: uppercase;
@@ -15,6 +16,7 @@
     border: 1px solid var(--gray);
     border-radius: 4px;
     cursor: pointer;
+    width: 150px;
     transition: all .3s;
   }
   & button:hover {

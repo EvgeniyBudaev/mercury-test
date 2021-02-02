@@ -6,10 +6,12 @@ import {
     LOAD_POSTS_FAILURE,
     LOAD_PHOTOS_REQUEST,
     LOAD_PHOTOS_SUCCESS,
-    LOAD_PHOTOS_FAILURE, ADD_FEEDBACK
+    LOAD_PHOTOS_FAILURE,
+    ADD_FEEDBACK,
 } from "../constants";
 import {PostsThunk, IPostsResponse, PostsTypes, PhotosTypes, IPhotosResponse, PhotosThunk} from "../types";
 import {Dispatch} from "redux";
+
 
 
 
@@ -71,6 +73,8 @@ export const addFeedback = (feedback: IFeedback):IAddFeedback => ({
     type: ADD_FEEDBACK,
     payload: {feedback}
 })
+
+
 
 
 
