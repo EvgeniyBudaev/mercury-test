@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from "../../controls/button";
 import Popup from "../../ui/popup";
 import Controls from "../../controls/controls";
+import {DialogContent} from "@material-ui/core";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +66,9 @@ const FeedbackForm = (props) => {
                     <Button type="submit" text="Submit" />
                 </form>
             </div>
-            <Popup openPopup={openPopup} setOpenPopup={setOpenPopup} title="Поздравляю!" />
+            <Popup openPopup={openPopup} setOpenPopup={setOpenPopup} title="Поздравляю!">
+                <p>Вы успешно отправили сообщение!</p>
+            </Popup>
             {/*<button onClick={() => setOpenPopup(true)}>Popup</button>*/}
         </div>
     )

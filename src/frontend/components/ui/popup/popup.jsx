@@ -30,12 +30,11 @@ const Popup = (props) => {
                         text="X"
                         onClick={() => setOpenPopup(false)}
                     >
-                        {children}
                     </Controls.Button>
                 </div>
             </DialogTitle>
             <DialogContent>
-                <p>Вы успешно отправили сообщение!</p>
+                {children}
             </DialogContent>
         </Dialog>
     )
