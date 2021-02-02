@@ -1,0 +1,30 @@
+.navbar {
+  color: var(--black);
+  display: flex;
+  height: 100%;
+  align-items: center;
+  & a {
+    padding: 0 30px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    background-color: #eeebeb;
+    border: 1px solid var(--gray);
+    transition: all .3s;
+  }
+  & a:hover {
+    border: 1px solid var(--black);
+    background-color: var(--white);
+  }
+}
+
+.inner {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+
+
+
+

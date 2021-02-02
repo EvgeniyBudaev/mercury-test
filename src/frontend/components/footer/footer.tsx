@@ -3,9 +3,9 @@ import styles from './footer.module.scss'
 
 const Footer: React.FC = () => {
     return (
-        <div className={styles.footer}>
+        <footer className={styles.footer}>
             <p className={styles.copyright}>Copyright 2021</p>
-        </div>
+        </footer>
     )
 }
 
