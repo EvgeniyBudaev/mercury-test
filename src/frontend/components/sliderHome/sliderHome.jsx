@@ -1,14 +1,18 @@
 import React from 'react'
-import styles from './sliderHome.scss'
+import './sliderHome.scss'
 import SimpleSlider from "./simpleSlider";
+import SliderInfo from "./sliderInfo";
 
 const SliderHome = () => {
     return (
         <div className="sliderHome">
             <div className="slider">
                 <div className="sliderContainer">
-                    <div className="sliderInner">
-                        <SimpleSlider />
+                    <div className="sliderWrapper">
+                        <SliderInfo />
+                        <div className="sliderInner">
+                            <SimpleSlider />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -17,3 +21,4 @@ const SliderHome = () => {
 }
 
 export default SliderHome
+

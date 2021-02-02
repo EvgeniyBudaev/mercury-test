@@ -2,13 +2,18 @@
   padding: 50px 0;
 }
 
+.sliderWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .slider {
   font-size: 16px;
 }
 
 .sliderContainer {
   /*ширина контейнера чистая 1110px*/
-  max-width: 1040px;
+  max-width: 1070px;
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
@@ -25,6 +30,7 @@
 // Стрелки у слайдера
 .sliderInner {
   position: relative;
+  width: 800px;
 }
 .sliderInner .slick-arrow {
   border: none;

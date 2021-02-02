@@ -1,17 +1,36 @@
-.error-indicator {
+.errorIndicator {
   display: flex;
   flex-direction: column;
   color: var(--black);
   margin: 0 auto;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  & h2 {
+    margin: 50px 0;
+  }
+  & p {
+    margin-bottom: 25px;
+    font-size: 20px;
+    text-align: start;
+  }
+}
+
+.container {
+  /*ширина контейнера чистая 1200px*/
+  max-width: 1070px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
 .boom {
   font-weight: 700;
 }
 
-.death-star-icon {
-  width: 40px;
-  height: 40px;
+.deathStarIcon {
+  width: 80px;
+  height: 80px;
   margin: 0 auto;
 }
