@@ -8,13 +8,16 @@ import 'slick-carousel/slick/slick.css'
 import './index.css'
 import App from './frontend/components/app'
 import reportWebVitals from './reportWebVitals'
+import ErrorBoundary from "./frontend/components/errorBoundary";
 
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
           <Provider store={store}>
-              <App />
+              <ErrorBoundary>
+                  <App />
+              </ErrorBoundary>
           </Provider>
       </BrowserRouter>
   </React.StrictMode>,

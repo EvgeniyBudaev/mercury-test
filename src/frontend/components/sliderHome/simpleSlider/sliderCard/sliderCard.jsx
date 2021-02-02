@@ -22,3 +22,4 @@ const SliderCard = ({images, text, description}) => {
 }
 
 export default SliderCard
+
