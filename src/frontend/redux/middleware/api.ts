@@ -1,6 +1,5 @@
 import { Middleware } from 'redux'
 import axios from 'axios'
-import {FAILURE, REQUEST, SUCCESS} from '../constants'
 import {RootStateType} from '../reducers'
 
 const api: Middleware<{}, RootStateType> = (store) => (next) => async (action) => {
@@ -8,13 +7,13 @@ const api: Middleware<{}, RootStateType> = (store) => (next) => async (action) =
 
     const {CallAPI, type, ...rest} = action
 
-    next({...rest, type: type + REQUEST})
+    next({...rest, type: type})
 
     try {
         const response = await axios.get(CallAPI)
-        next({...rest, type: type + SUCCESS, response})
+        next({...rest, type: type, response})
     } catch (error) {
-        next({...rest, type: type + FAILURE, error})
+        next({...rest, type: type, error})
     }
 }
 

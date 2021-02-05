@@ -5,6 +5,7 @@ import {IPhoto, IPost, IPostId} from "./types";
 
 export const postsSelector = (state: RootStateType) => state.posts.entities
 export const photosSelector = (state: RootStateType) => state.photos.entities
+export const usersSelector = (state: RootStateType) => state.users.entities
 
 export const postsLoadingSelector = (state: RootStateType) =>
     state.posts.loading
@@ -16,6 +17,11 @@ export const photosLoadingSelector = (state: RootStateType) =>
 export const photosLoadedSelector = (state: RootStateType) =>
     state.photos.loaded
 
+export const usersLoadingSelector = (state: RootStateType) =>
+    state.users.loading
+export const usersLoadedSelector = (state: RootStateType) =>
+    state.users.loaded
+
 export const postsListSelector = createSelector(
     postsSelector,
     Object.values
@@ -23,6 +29,11 @@ export const postsListSelector = createSelector(
 
 export const photosListSelector = createSelector(
     photosSelector,
+    Object.values
+)
+
+export const usersListSelector = createSelector(
+    usersSelector,
     Object.values
 )
 

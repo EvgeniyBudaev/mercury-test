@@ -10,8 +10,11 @@ import {
     postsListSelector,
     postsLoadedSelector,
     postsLoadingSelector,
+    usersListSelector,
+    usersLoadingSelector,
+    usersLoadedSelector
 } from "../../redux/selectors";
-import {loadPhotos, loadPosts} from "../../redux/actions/action";
+import {loadPhotos, loadPosts, loadUsers} from "../../redux/actions/action";
 import {RootStateType} from "../../redux/reducers";
 import {CardsPopsType, MapStatePropsPostsType} from "./interface";
 
@@ -22,21 +25,27 @@ const Cards: React.FC<CardsPopsType> = (props) => {
         posts,
         loadPosts,
         loadPhotos,
+        loadUsers,
         loadingPosts,
         loadedPosts,
         loadingPhotos,
-        loadedPhotos
+        loadedPhotos,
+        loadingUsers,
+        loadedUsers
     } = props
+
+    console.log('[Cards][props]', props)
 
 
     useEffect(() => {
-        if (!loadingPosts && !loadedPosts && !loadingPhotos && !loadedPhotos) {
+        if (!loadingPosts && !loadedPosts && !loadingPhotos && !loadedPhotos && !loadingUsers && !loadedUsers) {
             loadPhotos()
             loadPosts()
+            loadUsers()
         }
-    }, [loadPosts, loadPhotos, loadingPosts, loadedPosts, loadingPhotos, loadedPhotos])
+    }, [loadPosts, loadPhotos, loadUsers, loadingPosts, loadedPosts, loadingPhotos, loadedPhotos, loadingUsers, loadedUsers])
 
-    if ((loadingPhotos && loadingPosts) || (!loadedPosts && !loadedPhotos)) return <Loader />
+    if ((loadingPhotos && loadingPosts && loadingUsers) || (!loadedPosts && !loadedPhotos && !loadedUsers)) return <Loader />
 
 
     return (
@@ -63,8 +72,11 @@ const mapStateToProps = (state: RootStateType):MapStatePropsPostsType => {
         photos: photosListSelector(state),
         loadingPhotos: photosLoadingSelector(state),
         loadedPhotos: photosLoadedSelector(state),
+        users: usersListSelector(state),
+        loadingUsers: usersLoadingSelector(state),
+        loadedUsers: usersLoadedSelector(state),
     }
 }
 
-export default connect(mapStateToProps, {loadPosts, loadPhotos})(Cards);
+export default connect(mapStateToProps, {loadPosts, loadPhotos, loadUsers})(Cards);
 

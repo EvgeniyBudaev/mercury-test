@@ -66,6 +66,11 @@ export interface IPhotosResponse {
     thumbnailUrl: string
 }
 
+export interface IUser {
+    id: number,
+    name: string
+}
+
 export type IFailure = {
     error: Error
 }

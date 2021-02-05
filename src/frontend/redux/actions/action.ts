@@ -8,8 +8,9 @@ import {
     LOAD_PHOTOS_SUCCESS,
     LOAD_PHOTOS_FAILURE,
     ADD_FEEDBACK,
+    LOAD_USERS_REQUEST, LOAD_USERS_SUCCESS, LOAD_USERS_FAILURE,
 } from "../constants";
-import {PostsThunk, IPostsResponse, PostsTypes, PhotosTypes, IPhotosResponse, PhotosThunk} from "../types";
+import {PostsThunk, IPostsResponse, PostsTypes, PhotosTypes, IPhotosResponse, PhotosThunk, IUser, IFailure} from "../types";
 import {Dispatch} from "redux";
 
 
@@ -72,6 +73,45 @@ export interface IAddFeedback {
 export const addFeedback = (feedback: IFeedback):IAddFeedback => ({
     type: ADD_FEEDBACK,
     payload: {feedback}
+})
+
+
+
+
+type LoadUsersRequestType = {
+    type: typeof LOAD_USERS_REQUEST,
+    CallAPI: string
+}
+
+interface IData {
+    data: Array<IUser>
+}
+
+interface IResponse {
+    response: IData
+}
+
+type LoadUsersSuccessType = {
+    type: typeof LOAD_USERS_SUCCESS,
+    CallAPI: string,
+    payload: IResponse
+}
+
+interface IError {
+    error: Array<IFailure>
+}
+
+type LoadUsersFailureType = {
+    type: typeof LOAD_USERS_FAILURE,
+    CallAPI: string,
+    payload: IError
+}
+
+export type LoadUsersTypes = LoadUsersRequestType | LoadUsersSuccessType | LoadUsersFailureType
+
+export const loadUsers = (): LoadUsersTypes => ({
+    type: LOAD_USERS_REQUEST,
+    CallAPI: 'https://jsonplaceholder.typicode.com/users/',
 })
 
 

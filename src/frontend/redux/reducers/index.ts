@@ -3,12 +3,14 @@ import postsReducer from "./postsReducer";
 import photosReducer from "./photosReducer";
 import feedbackReducer from "./feedbackReducer";
 import authReducer from "./authReducer";
+import usersReducer from "./usersReducer";
 
 const rootReducer = combineReducers({
     posts: postsReducer,
     photos: photosReducer,
     feedback: feedbackReducer,
-    auth: authReducer
+    auth: authReducer,
+    users: usersReducer
 })
 
 // (globalState: RootStateType) => RootStateType
